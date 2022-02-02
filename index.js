@@ -100,3 +100,9 @@ let productjson = [
 function getFeedBack(fn, ln, star, text) {
     console.log({ "firstName": fn }, { "lastName": ln }, { "countStar": star }, { "feedText": text })
 }
+
+function getBuyCart(arrayCart) {
+    for (let el of arrayCart) {
+        console.log({ "id": el.id }, { "name": el.name }, { "count": el.count }, { "price": el.price })
+    }
+}

@@ -26,9 +26,9 @@ document.getElementById("easy-store").innerHTML = `<div>
         <span class="caret"> </span>
     </button>
         <ul class="shop__cart dropdown-menu" id="cart">
-            <!-- dropdown menu links -->
             <li id="dropdown-menu-price">
                 <span></span>
+                <a id="buy" class="btn btn__list btn-default btn-sm" onclick="buy()">Buy</a>
                 <p id="dropdown-menu-price-sum">Price: 0$</p>
             </li>
         </ul>
@@ -128,7 +128,7 @@ const price = () => {
 
     let block = document.createElement('li');
     block.id = "dropdown-menu-price";
-    block.innerHTML = `<span></span><p id="dropdown-menu-price-sum">Price: ${sum}$</p>`
+    block.innerHTML = `<span></span><a id="buy" class="btn btn__list btn-default btn-sm" onclick="buy()">Buy</a><p id="dropdown-menu-price-sum">Price: ${sum}$</p>`
     document.getElementById("cart").appendChild(block);
 }
 
@@ -224,6 +224,19 @@ const toCart = (el) => {
     price()
 }
 
+const buy = () => {
+    let array = document.getElementsByClassName('cart__li');
+    if (array.length == 0) { alert("You have not selected any products"); return 0; }
+    let arrayCart = [];
+
+    for (let i = 0; i < array.length; i++) {
+        let el = array[i]
+        let id = el.id.split("_in_car")[0];
+        let price = document.getElementById(id + "_in_cart_sum").value * (prodMap.get(id)).price;
+        arrayCart.push({ "id": id, "name": (prodMap.get(id)).name, "count": document.getElementById(id + "_in_cart_sum").value, "price": price });
+    }
+    getBuyCart(arrayCart);
+}
 
 
 const onload = () => {
@@ -257,9 +270,9 @@ const listUpDown = (oldProducts, napr, count) => {
             document.getElementById("body").removeChild(cards[i])
         }
 
-        if (document.getElementById("descending").style.color == "var(--malina-color)")
+        if (document.getElementById("ascending").style.color == "var(--malina-color)")
             var products = oldProducts.sort((a, b) => a.price - b.price);
-        else if (document.getElementById("ascending").style.color == "var(--malina-color)")
+        else if (document.getElementById("descending").style.color == "var(--malina-color)")
             var products = oldProducts.sort((a, b) => b.price - a.price);
         else if (document.getElementById("a_to_z").style.color == "var(--malina-color)")
             var products = oldProducts.sort((a, b) => a.name.localeCompare(b.name));
