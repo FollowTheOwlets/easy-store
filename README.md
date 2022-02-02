@@ -23,4 +23,3 @@ star-> product rating
 text -> customer review text
 `} `
 
-Translated with www.DeepL.com/Translator (free version)
