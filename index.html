@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>example shope</title>
+    <link rel="stylesheet" href="style.css" type="text/css"></link>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+
+        <div class="btn-group" style="position: fixed;right: 30px;top: 10px;z-index:100 ;">
+            <div class="shop__cart">
+                <button id="shap_cart" class=" shap__cart__btn btn dropdown-toggle btn-large" data-toggle="dropdown">
+                    <span>Shopping cart :</span>
+                    <span id="btn__sum">0</span>
+                    <span > product</span>
+                    <span class="caret"> </span>
+                </button>
+                <ul class="shop__cart dropdown-menu" id="cart">
+                    <!-- dropdown menu links -->
+                    <li id="dropdown-menu-price">
+                        <span></span>
+                        <p id="dropdown-menu-price-sum">Price: 0$</p>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="body__header">
+            <div class="view" style="flex:1;display:flex;flex-wrap: nowrap;align-items: center;">
+                <strong>View: </strong>
+                <div class="view__btn-group btn">
+                    <a id="list" class="btn btn__list btn-default btn-sm" onclick="changeView(1)">
+                        <span class="glyphicon glyphicon-th-list"></span>List</a>
+                    <a id="grid" class="btn btn__grid btn-default btn-sm" onclick="changeView(0)">
+                        <span class="glyphicon glyphicon-th"></span>Grid</a>
+                </div>
+            </div>
+            <div style="display:flex;align-items: center;flex:6;justify-content: space-around;">
+                <div id="upMenu">
+                    <span class="numList">1</span>
+                </div>
+            </div>
+
+            <div style="flex:1;padding: 1px 10px;min-width: 200px;">
+
+            </div>
+
+        </div>
+
+        <div class="body__sort">
+            <strong style="padding:4px 10px 4px 30px;cursor:pointer;" onclick="">Sort by:</strong>
+            <div>
+                <span type="button" class="btn btn-default btn-xs" style="padding:4px 5px;cursor:pointer;" onclick="sort(this)" id="descending">Price<span class = " glyphicon glyphicon-arrow-down" style="padding-left:10px ;"></span></span>
+                <span type="button" class="btn btn-default btn-xs " style="padding:4px 5px;cursor:pointer;" onclick="sort(this)" id="ascending">Price<span class = " glyphicon glyphicon-arrow-up" style="padding-left:10px ;"> </span> </span>
+                <span type="button" class="btn btn-default btn-xs" style="padding:4px 5px;cursor:pointer;" onclick="sort(this)" id="a_to_z">A to Z</span>
+                <span type="button" class="btn btn-default btn-xs" style="padding:4px 5px;cursor:pointer;" onclick="sort(this)" id="z_to_a">Z to A</span>
+            </div>
+        </div>
+
+        <div class="body-body " id="body">
+            <div id="load" style="display: none;">
+                <div class="loader loader-5"></div>
+            </div>
+        </div>
+        <div id="footer" style="display:flex;align-items: center;flex:3;justify-content: space-around; padding-bottom: 10px;">
+            <div style="display:flex;align-items: center; ">
+                <div id="downMenu">
+                    <span class="numList">1</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="blur" style="display: none;">
+    </div>
+    <div id="close" style="display: none;">
+        <a id="close_btn" class="btn__close btn-default" onclick="closeFeedBack(this)">
+            <span class="glyphicon glyphicon-remove"></span></a>
+    </div>
+
+
+    <script src="index.js "></script>
+</body>
+
+</html>
